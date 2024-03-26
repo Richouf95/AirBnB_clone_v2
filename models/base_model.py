@@ -59,7 +59,7 @@ class BaseModel:
         dict_format["__class__"] = str(type(self).__name__)
         dict_format["created_at"] = self.created_at.isoformat()
         dict_format["updated_at"] = self.updated_at.isoformat()
-        if '_sa_instance_state' in my_dict.keys():
+        if '_sa_instance_state' in dict_format.keys():
             del dict_format['_sa_instance_state']
 
         return dict_format

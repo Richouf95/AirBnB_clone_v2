@@ -33,7 +33,7 @@ class FileStorage:
     def new(self, obj):
         """Adds new object to storage dictionary"""
         if obj:
-            i_name = type(bj).__name__
+            i_name = type(obj).__name__
             i_id = obj.id
             k = "{}.{}".format(i_name, i_id)
             self.__objects[k] = obj
