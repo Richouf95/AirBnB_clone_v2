@@ -14,14 +14,16 @@ def do_pack():
     """
         make archive
     """
-    time = datetime.now()
-    archive_name = "web_static_{}.tgz".format(time.strftime("%Y%m%d%H%M%S"))
-    local('mkdir -p versions')
-    ziping = local('tar -cvzf versions/{} web_static'.format(archive_name))
-
-    if ziping is not None:
+    try:
+        if isdir("versions") is False:
+            local("mkdir versions")
+        archive_name = "versions/web_static_{}.tgz".format(
+                datetime.now().strftime("%Y%m%d%H%M%S")
+                )
+        local('tar -cvzf {} web_static'.format(archive_name))
         return archive_name
-    else:
+    except Exception as e:
+        print("Exception :", e)
         return None
 
 
