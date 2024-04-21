@@ -21,6 +21,9 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
+        """
+        Cities
+        """
         data = models.storage.all()
         cities_list = []
         matched = []

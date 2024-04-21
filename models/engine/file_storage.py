@@ -62,7 +62,7 @@ class FileStorage:
         if obj:
             i_name = type(obj).__name__
             i_id = obj.id
-            key = "{}.{}".format(type(i_name, i_id))
+            key = "{}.{}".format(i_name, i_id)
             del self.__objects[key]
 
     def close(self):
