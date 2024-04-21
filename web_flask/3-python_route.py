@@ -12,12 +12,10 @@ def hello_hbnb():
 	"""Display Hello HBNB! at / """
 	return 'Hello HBNB!'
 
-
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
 	"""Display HBNB at /hbnb"""
 	return 'HBNB'
-
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
@@ -25,6 +23,15 @@ def c_route(text):
 	the text variable"""
 	text = text.replace("_", " ")
 	return "C {}".format(text)
+
+@app.route("/python", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def python_route(text="is cool"):
+	"""
+	Displays 'Python' followed by the value of <text>
+	"""
+	return "Python {}".format(text.replace("_", " "))
+
 
 
 if __name__ == '__main__':
